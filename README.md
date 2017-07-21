@@ -1,2 +1,2 @@
 # LVK_Play
-I'm in progress with implementing music Player. Its not yet completed.
+This is Music player application. I'm in progress with implementing it.
