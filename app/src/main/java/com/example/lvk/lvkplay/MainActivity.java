@@ -1,5 +1,8 @@
 package com.example.lvk.lvkplay;
 
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -15,8 +18,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.example.lvk.lvkplay.fragments.MusicLibraryFragment;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    FragmentManager fragmentManager;
+    FragmentTransaction fragmentTransaction;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,17 +78,21 @@ public class MainActivity extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
+        Fragment fragment=new Fragment();
         int id = item.getItemId();
 
         if (id == R.id.nav_home) {
-
+            Toast.makeText(this, R.string.funcitonalityProgress,Toast.LENGTH_SHORT).show();
         } else if (id == R.id.nav_recent) {
-
+            Toast.makeText(this, R.string.funcitonalityProgress,Toast.LENGTH_SHORT).show();
         } else if (id == R.id.nav_library) {
-
+            MusicLibraryFragment libraryFragment=new MusicLibraryFragment();
+            fragment=libraryFragment;
         }
-
+        fragmentManager=getFragmentManager();
+        fragmentTransaction=fragmentManager.beginTransaction();
+        fragmentTransaction.add(R.id.main_container,fragment,null);
+        fragmentTransaction.commit();
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
