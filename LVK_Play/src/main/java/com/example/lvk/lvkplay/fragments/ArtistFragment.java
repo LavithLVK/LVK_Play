@@ -11,34 +11,33 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.lvk.lvkplay.R;
-import com.example.lvk.lvkplay.fragments.dummy.dummy.DummyContent;
-import com.example.lvk.lvkplay.fragments.dummy.dummy.DummyContent.DummyItem;
+import com.example.lvk.lvkplay.fragments.dummy.DummyContent;
+import com.example.lvk.lvkplay.fragments.dummy.DummyContent.DummyItem;
 
 /**
  * A fragment representing a list of Items.
  * <p/>
- * Activities containing this fragment MUST implement the {@link OnSongListFragmentInteractionListener}
+ * Activities containing this fragment MUST implement the {@link OnListFragmentInteractionListener}
  * interface.
  */
-public class SongFragment extends Fragment {
+public class ArtistFragment extends Fragment {
 
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
-    // TODO: Customize parameters
     private int mColumnCount = 1;
-    private OnSongListFragmentInteractionListener mListener;
+    private OnListFragmentInteractionListener mListener;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
-    public SongFragment() {
+    public ArtistFragment() {
     }
 
     // TODO: Customize parameter initialization
     @SuppressWarnings("unused")
-    public static SongFragment newInstance(int columnCount) {
-        SongFragment fragment = new SongFragment();
+    public static ArtistFragment newInstance(int columnCount) {
+        ArtistFragment fragment = new ArtistFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_COLUMN_COUNT, columnCount);
         fragment.setArguments(args);
@@ -57,7 +56,7 @@ public class SongFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_song_list, container, false);
+        View view = inflater.inflate(R.layout.fragment_artist_list, container, false);
 
         // Set the adapter
         if (view instanceof RecyclerView) {
@@ -68,7 +67,7 @@ public class SongFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new SongRecyclerViewAdapter(DummyContent.ITEMS, mListener));
+            recyclerView.setAdapter(new ArtistRecyclerViewAdapter(DummyContent.ITEMS, mListener));
         }
         return view;
     }
@@ -77,8 +76,8 @@ public class SongFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof OnSongListFragmentInteractionListener) {
-            mListener = (OnSongListFragmentInteractionListener) context;
+        if (context instanceof OnListFragmentInteractionListener) {
+            mListener = (OnListFragmentInteractionListener) context;
         } else {
             throw new RuntimeException(context.toString()
                     + " must implement OnListFragmentInteractionListener");
@@ -100,9 +99,8 @@ public class SongFragment extends Fragment {
      * See the Android Training lesson <a href=
      * "http://developer.android.com/training/basics/fragments/communicating.html"
      * >Communicating with Other Fragments</a> for more information.
-     */
-    public interface OnSongListFragmentInteractionListener {
+    public interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onListFragmentInteraction(DummyItem item);
-    }
+        void onListFragmentInteraction(String TAG,DummyItem item);
+    }*/
 }

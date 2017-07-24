@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/LVKPlay.iml" filepath="$PROJECT_DIR$/LVKPlay.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LVK_Play/LVK_Play.iml" filepath="$PROJECT_DIR$/LVK_Play/LVK_Play.iml" />
     </modules>
   </component>
 </project>

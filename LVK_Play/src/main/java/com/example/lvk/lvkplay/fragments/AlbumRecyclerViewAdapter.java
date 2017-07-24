@@ -7,21 +7,21 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.lvk.lvkplay.R;
-import com.example.lvk.lvkplay.fragments.dummy.dummy.DummyContent.DummyItem;
+import com.example.lvk.lvkplay.fragments.dummy.DummyContent.DummyItem;
 
 import java.util.List;
 
 /**
  * {@link RecyclerView.Adapter} that can display a {@link DummyItem} and makes a call to the
- * specified {@link SongFragment.OnSongListFragmentInteractionListener}.
+ * specified {@link OnListFragmentInteractionListener}.
  * TODO: Replace the implementation with code for your data type.
  */
-public class SongRecyclerViewAdapter extends RecyclerView.Adapter<SongRecyclerViewAdapter.ViewHolder> {
+public class AlbumRecyclerViewAdapter extends RecyclerView.Adapter<AlbumRecyclerViewAdapter.ViewHolder> {
 
     private final List<DummyItem> mValues;
-    private final SongFragment.OnSongListFragmentInteractionListener mListener;
+    private final OnListFragmentInteractionListener mListener;
 
-    public SongRecyclerViewAdapter(List<DummyItem> items, SongFragment.OnSongListFragmentInteractionListener listener) {
+    public AlbumRecyclerViewAdapter(List<DummyItem> items, OnListFragmentInteractionListener listener) {
         mValues = items;
         mListener = listener;
     }
@@ -29,7 +29,7 @@ public class SongRecyclerViewAdapter extends RecyclerView.Adapter<SongRecyclerVi
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.song_item, parent, false);
+                .inflate(R.layout.album_item, parent, false);
         return new ViewHolder(view);
     }
 
@@ -45,7 +45,7 @@ public class SongRecyclerViewAdapter extends RecyclerView.Adapter<SongRecyclerVi
                 if (null != mListener) {
                     // Notify the active callbacks interface (the activity, if the
                     // fragment is attached to one) that an item has been selected.
-                    mListener.onListFragmentInteraction(holder.mItem);
+                    mListener.onListFragmentInteraction("Album",holder.mItem);
                 }
             }
         });

@@ -19,9 +19,11 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.example.lvk.lvkplay.fragments.MusicLibraryFragment;
+import com.example.lvk.lvkplay.fragments.OnListFragmentInteractionListener;
+import com.example.lvk.lvkplay.fragments.dummy.DummyContent;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener,OnListFragmentInteractionListener {
 
     FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction;
@@ -96,5 +98,17 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void onListFragmentInteraction(String Tag,DummyContent.DummyItem item) {
+        switch(Tag){
+            case "Album":
+                break;
+            case "Song":
+                break;
+            case "Artist":
+                break;
+        }
     }
 }
